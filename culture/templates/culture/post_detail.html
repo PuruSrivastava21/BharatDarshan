@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }} | BharatDarshan{% endblock %}
+
+{% block content %}
+<div style="max-width:800px; margin:auto; background:white; padding:20px; border-radius:10px; box-shadow:0 8px 18px rgba(0,0,0,0.12);">
+
+<a class="delete-icon" href="{% url 'delete_post' post.id %}">🗑</a>
+
+{% if post.image %}
+<img src="{{ post.image.url }}" style="width:100%; border-radius:10px; max-height:400px; object-fit:cover;">
+{% endif %}
+
+<h2 style="color:#138808; margin-top:20px;">{{ post.title }}</h2>
+<p style="font-size:15px; line-height:1.7;">{{ post.description }}</p>
+
+<a class="btn" href="/">⬅ Back</a>
+</div>
+{% endblock %}

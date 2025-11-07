@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BharatDarshan{% endblock %}</title>
+    <style>
+        /* ====== GLOBAL RESET ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom right, #fff7e6, #f0fff0);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ====== HEADER ====== */
+        header {
+            background: linear-gradient(90deg, #ff9933, #ffffff, #138808);
+            color: #222;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            margin-top: 8px;
+        }
+
+        nav a {
+            color: #222;
+            font-weight: 600;
+            margin: 0 15px;
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: rgba(0,0,0,0.1);
+            transform: scale(1.1);
+        }
+
+        /* ====== MAIN ====== */
+        main {
+            flex: 1;
+            padding: 40px 10%;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ====== MESSAGES ====== */
+        .message-box {
+            background-color: #fff8e1;
+            color: #333;
+            padding: 10px 20px;
+            border: 1px solid #ffcc80;
+            border-radius: 5px;
+            margin: 10px auto;
+            width: 50%;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* ====== FOOTER ====== */
+        footer {
+            background: #138808;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* ====== ALERT POPUP ====== */
+        .alert-popup {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #ff9933;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            animation: fadeInOut 3s ease forwards;
+            z-index: 9999;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(-10px); }
+            10%, 90% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-10px); }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🇮🇳 BharatDarshan</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/heritage-sites/">Heritage Sites</a>
+            <a href="/festivals/">Festivals</a>
+            <a href="/artforms/">Art Forms</a>
+            <a href="/add-post/">Add Post</a>
+            {% if user.is_authenticated %}
+                <a href="/logout/">Logout</a>
+                <a href="/admin/">Admin Panel</a>
+            {% else %}
+                <a href="/login/">Login</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert-popup">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2025 BharatDarshan | Discover India's Cultural Heritage</p>
+    </footer>
+</body>
+</html>

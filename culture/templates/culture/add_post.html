@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}Add Post | BharatDarshan{% endblock %}
+{% block content %}
+
+<style>
+.add-post {
+  max-width: 500px;
+  background: white;
+  margin: 40px auto;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  font-family: 'Poppins', sans-serif;
+}
+.add-post h2 {
+  text-align: center;
+  color: #138808;
+}
+.add-post input, .add-post select, .add-post textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 6px;
+}
+.add-post button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background: linear-gradient(90deg, #ff9933, #138808);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.add-post button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #ff6600, #0b7a0b);
+}
+</style>
+
+<div class="add-post">
+  <h2>Add a New Cultural Post ✨</h2>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Title:</label>
+    <input type="text" name="title" required>
+
+    <label>Description:</label>
+    <textarea name="description" rows="4" required></textarea>
+
+    <label>Category:</label>
+    <select name="category" required>
+      <option value="heritage">Heritage Site</option>
+      <option value="festival">Festival</option>
+      <option value="artform">Art Form</option>
+    </select>
+
+    <label>Image:</label>
+    <input type="file" name="image" accept="image/*">
+
+    <button type="submit">Submit Post</button>
+  </form>
+</div>
+
+{% endblock %}
