@@ -57,7 +57,7 @@ bharatdarshan/
 ```bash
 git clone https://github.com/YOUR_USERNAME/BharatDarshan.git
 cd BharatDarshan
-✅ 2. Create virtual environment & install requirements
+### ✅ 2. Create virtual environment & install requirements
 python -m venv venv
 source venv/Scripts/activate   # Windows
 # or
@@ -65,19 +65,19 @@ source venv/bin/activate       # Mac/Linux
 
 pip install -r requirements.txt
 
-✅ 3. Run migrations
+### ✅ 3. Run migrations
 python manage.py migrate
 
-✅ 4. Create superuser
+### ✅ 4. Create superuser
 python manage.py createsuperuser
 
-✅ 5. Start server
+### ✅ 5. Start server
 python manage.py runserver
 
 
 Visit 👉 http://127.0.0.1:8000/
 
-🎯 What I Learned
+## 🎯 What I Learned
 
 Django MVC (MVT) architecture
 
@@ -95,15 +95,15 @@ Improving UI using CSS & JS
 
 Deploy-ready file structure & environment setup
 
-🤝 Contributing
+## 🤝 Contributing
 
 Feel free to fork this repo & contribute.
 Pull requests are welcome!
 
-📜 License
+## 📜 License
 
 This project is open-source for learning purposes.
 
-🙏 Acknowledgement
+## 🙏 Acknowledgement
 
 Built with ❤️ as my first Django project, exploring India's diversity while learning full-stack development.
