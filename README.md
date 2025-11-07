@@ -48,14 +48,16 @@ bharatdarshan/
 
 ## 🚀 Setup Instructions
 
+
+---
+
+## 🚀 Setup Instructions
+
 ### ✅ 1. Clone the repo
 ```bash
 git clone https://github.com/YOUR_USERNAME/BharatDarshan.git
 cd BharatDarshan
-
-
-Create virtual environment & install requirements
-
+✅ 2. Create virtual environment & install requirements
 python -m venv venv
 source venv/Scripts/activate   # Windows
 # or
@@ -63,11 +65,17 @@ source venv/bin/activate       # Mac/Linux
 
 pip install -r requirements.txt
 
+✅ 3. Run migrations
 python manage.py migrate
 
+✅ 4. Create superuser
 python manage.py createsuperuser
 
+✅ 5. Start server
 python manage.py runserver
+
+
+Visit 👉 http://127.0.0.1:8000/
 
 🎯 What I Learned
 
@@ -95,5 +103,7 @@ Pull requests are welcome!
 📜 License
 
 This project is open-source for learning purposes.
+
+🙏 Acknowledgement
 
 Built with ❤️ as my first Django project, exploring India's diversity while learning full-stack development.
